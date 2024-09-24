@@ -1,0 +1,191 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "font1";
+  src: url(./FONT1.ttf);
+}
+@font-face {
+  font-family: "font2";
+  src: url(./FONT2.ttf);
+}
+@font-face {
+  font-family: "font3";
+  src: url(./FONT3.ttf);
+}
+@font-face {
+  font-family: "font4";
+  src: url(./FONT4.ttf);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+#head {
+  width: 100%;
+  height: 11vh;
+  background: #71c9c9;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.img{
+    width: 20%;
+    height: 100%;
+    background: #f0ecec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+}
+.logo {
+  width:fit-content;
+  height: 100%;
+  object-fit: cover;
+  /* margin-left: 4.5vw; */
+  background-color: aqua;
+}
+.navElm {
+  width: 55%;
+  height: 100%;
+  /* background: #9c9999; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navber-list {
+  list-style: none;
+  display: flex;
+  gap: 7.3vw;
+}
+.navElm .navber-list .navber-link {
+  text-decoration: none;
+  font-family: "font2";
+  font-weight: 600;
+  letter-spacing: 0.1vw;
+  font-size: 1.2vw;
+}
+.navber-link:link,
+.navber-link:visited {
+display: inline-block;
+text-transform: capitalize; 
+font-size: 1vw;
+color: black;
+transition: all 0.3s;
+}
+.navber-link:hover,
+.navber-link:active{
+    color: #71c9c9;
+}
+.mobile-nav-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+}
+#checkbox {
+    display: none;
+  }
+  .toggle {
+    position: relative;
+    width: 32px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+    margin: 2vw;
+  }
+  .bars {
+    width: 100%;
+    height: 5px;
+    background-color: rgb(176, 92, 255);
+    border-radius: 4px;
+  }
+  
+  #bar2 {
+    transition-duration: .8s;
+  }
+  
+  #bar1,#bar3 {
+    width: 70%;
+  }
+  
+  #checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+  }
+  
+  #checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+  }
+  /* responsive */
+  /* 980px */
+  @media(max-width:980px){
+    .mobile-nav-btn{
+        display: block;
+        z-index: 99;
+    }
+#head{
+    position: relative;
+}
+    .logo{
+        width: 65%;
+        height: 95%;
+    }
+    .navElm{
+        /* display: none; */
+        /* display: flex; */
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background: #ec8888;
+        position: absolute;
+        top:0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .navber-list{
+        flex-direction: column;
+        align-items: center;
+    }
+   .navber-link{
+
+    }
+    .active .navElm{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+  }
